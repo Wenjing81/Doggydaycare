@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 
 
-
+//define a class LoadAllDogs in components.
 class LoadAllDogs extends Component{
 
         
