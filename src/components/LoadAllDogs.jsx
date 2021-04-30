@@ -1,21 +1,20 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import { CardList } from './card-list/card-list.component';
 
 
-
-//define a class LoadAllDogs in components.
-class LoadAllDogs extends Component{
-
-        
+//define a class LoadAllDogs in components
+class LoadAllDogs extends Component{  
     constructor(props){
       super(props);
       this.state ={
         items:[],
         isLoaded :false,
-      }
+      };
+      
     }
+//get the data from api    
     componentDidMount(){
-  
       fetch ('https://api.jsonbin.io/b/6087d9c3f6655022c46d0b41')
       .then(res => res.json())
       .then(json =>{
@@ -23,12 +22,12 @@ class LoadAllDogs extends Component{
                  isLoaded:true,
                  items:json,
             })
-  
       });
     }
+//show the data from api, introduce a component - CardList.
     render() {
-  
-      var { isLoaded,items }=this.state;
+
+      const { isLoaded,items }=this.state;
   
       if(!isLoaded){
         return <div>Loading....</div>
@@ -36,16 +35,12 @@ class LoadAllDogs extends Component{
       else{
         return(
           <div className ="App">
-            <ul>
-              
-               {items.map(item =>(
-                    <li key ={item.id}>
-                      {item.name} |{item.breed}|{item.age}
-                    </li>
-  
-               ))};
-              
-            </ul>
+     
+          <CardList items= {this.state.items}> 
+            
+          </CardList>
+            
+            
             <Link to = "/DetailsInfo">
              <button onClick= "">More!</button>
             </Link>

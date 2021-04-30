@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React ,{ Component } from 'react';
 import Welcome from './components/Welcome';
 import LoadAllDogs from './components/LoadAllDogs';
 import { BrowserRouter as Router, Route ,Switch} from'react-router-dom'
