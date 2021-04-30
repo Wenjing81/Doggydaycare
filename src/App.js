@@ -1,25 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Welcome from './components/Welcome';
+import LoadAllDogs from './components/LoadAllDogs';
+import { BrowserRouter as Router, Route ,Switch} from'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
+function App(){
+    
+      return(
+        <div className ="App">
+          <main>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Welcome/>
+            </Route>
+            <Route path="/LoadAllDogs">
+              <LoadAllDogs/>
+            </Route>
+            <Route path="/DetailsInfo">
+              <LoadAllDogs/>
+            </Route>
+          
+          </Switch>
+        </Router>   
+        </main>
+        </div>
+      );
+    }
+   
+ 
 export default App;
+
+
+
+
