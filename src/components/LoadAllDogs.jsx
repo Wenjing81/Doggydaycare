@@ -24,7 +24,7 @@ class LoadAllDogs extends Component{
             })
       });
     }
-//show the data from api, introduce a component - CardList.
+//show the data from api, introduce a component - CardList, card also.
     render() {
 
       const { isLoaded,items }=this.state;
