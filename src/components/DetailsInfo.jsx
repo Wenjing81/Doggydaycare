@@ -1,6 +1,15 @@
+import React ,{ Component } from 'react';
 
-const DetailsInfo = ({ nextScreen }) =>(
-    console.log("details")
-);
+ 
+class DetailsInfo extends Component{ 
+    componentDidMount(){
+        let item = this.props.match.params.item;
+        console.log("item is ", item)
+    }
+
+
+   
+}
+
 
 export default DetailsInfo;

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import { CardList } from './card-list/card-list.component';
-
+import{ SearchBox } from './search-box/search-box.component';
 
 //define a class LoadAllDogs in components
 class LoadAllDogs extends Component{  
@@ -10,6 +9,7 @@ class LoadAllDogs extends Component{
       this.state ={
         items:[],
         isLoaded :false,
+        searchField: ''
       };
       
     }
@@ -27,23 +27,27 @@ class LoadAllDogs extends Component{
 //show the data from api, introduce a component - CardList, card also.
     render() {
 
-      const { isLoaded,items }=this.state;
-  
+      const { isLoaded }= this.state;
+      const { items,searchField } = this.state;
+      const filteredItems = items.filter(item =>
+        item.name.toLowerCase().includes(searchField.toLowerCase())
+        )
+      
       if(!isLoaded){
         return <div>Loading....</div>
       }
       else{
         return(
           <div className ="App">
+            
+            <SearchBox
+            placeholder ='search dogs'
+            handleChange={e=>this.setState({searchField: e.target.value})}
+            />
      
-          <CardList items= {this.state.items}> 
+            <CardList items= {filteredItems}> 
             
-          </CardList>
-            
-            
-            <Link to = "/DetailsInfo">
-             <button onClick= "">More!</button>
-            </Link>
+            </CardList>
           </div>
         );
       }

@@ -1,0 +1,11 @@
+.search{
+    border:none;
+    outline:none;
+    padding:5px;
+    height:25%;
+    width:25%;
+    margin-bottom: 30px;
+    border-color: coral;
+    border-style:solid;
+    border-radius: 5px;
+}

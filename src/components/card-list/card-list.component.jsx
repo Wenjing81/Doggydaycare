@@ -8,7 +8,7 @@ export const CardList = props => {
     <div className='card-list'>
        {props.items.map(item =>(
         <Card key ={item.chipNumber} item ={item}/>
-    ))};
+    ))}
     </div>
     );
 }; 
